@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:CUST-{MM}-{YY}-{###}",
  "creation": "2024-07-29 12:44:42.462968",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -32,17 +33,14 @@
   },
   {
    "fieldname": "nationality",
-   "fieldtype": "Select",
-   "label": "Nationality"
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_fzyy",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
   },
   {
    "fieldname": "age",
@@ -52,7 +50,9 @@
   {
    "fieldname": "passport__id_number",
    "fieldtype": "Data",
-   "label": "Passport / ID Number"
+   "label": "Passport / ID Number",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "passport",
@@ -63,14 +63,21 @@
    "fieldname": "middle_name_optional",
    "fieldtype": "Data",
    "label": "Middle Name (Optional)"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-29 13:20:08.521062",
+ "modified": "2024-07-29 19:15:46.633135",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Travel Customer",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
