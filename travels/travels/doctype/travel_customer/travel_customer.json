@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "first_name",
+  "middle_name_optional",
   "last_name",
   "nationality",
   "column_break_fzyy",
@@ -18,12 +19,16 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name"
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name"
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
   },
   {
    "fieldname": "nationality",
@@ -53,11 +58,16 @@
    "fieldname": "passport",
    "fieldtype": "Attach",
    "label": "Passport"
+  },
+  {
+   "fieldname": "middle_name_optional",
+   "fieldtype": "Data",
+   "label": "Middle Name (Optional)"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-29 13:14:19.120341",
+ "modified": "2024-07-29 13:20:08.521062",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Travel Customer",
