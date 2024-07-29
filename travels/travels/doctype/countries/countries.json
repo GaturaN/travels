@@ -1,39 +1,38 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2024-07-29 13:21:40.638099",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "section_break_wujw"
- ],
- "fields": [
-  {
-   "fieldname": "section_break_wujw",
-   "fieldtype": "Section Break"
-  }
- ],
- "index_web_pages_for_search": 1,
- "issingle": 1,
- "links": [],
- "modified": "2024-07-29 13:21:40.638099",
- "modified_by": "Administrator",
- "module": "Travels",
- "name": "Countries",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2024-07-29 13:21:40.638099",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": ["country"],
+  "fields": [
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "issingle": 1,
+  "links": [],
+  "modified": "2024-07-29 13:24:02.544794",
+  "modified_by": "Administrator",
+  "module": "Travels",
+  "name": "Countries",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
 }
