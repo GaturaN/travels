@@ -17,7 +17,15 @@ frappe.ui.form.on("Travel Customer", "date_of_birth", function (frm) {
             frappe.model.set_value(frm.doctype, frm.docname, "date_of_birth", '');
         }
         else{
-            let age_str = Math.floor((today - birthdate) / (365.25 * 24 * 60 * 60 * 1000));
+            let year_diff = today.getFullYear() - birthdate.getFullYear();
+            let month_diff = today.getMonth() - birthdate.getMonth();
+            let day_diff = today.getDate() - birthdate.getDate();
+
+            if (month_diff < 0 || (month_diff === 0 && day_diff < 0)) {
+                year_diff--;
+            }
+
+            let age_str = `${year_diff} years, ${month_diff} months, ${day_diff} days`;
             $(frm.fields_dict['age'].wrapper).html(`${__('AGE')} : ${age_str}`);
         }
     } else {
