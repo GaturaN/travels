@@ -6,10 +6,10 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "full_name",
   "first_name",
   "middle_name_optional",
   "last_name",
-  "full_name",
   "nationality",
   "column_break_fzyy",
   "date_of_birth",
@@ -80,7 +80,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-30 04:26:44.057761",
+ "modified": "2024-07-30 15:14:52.915971",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Travel Customer",
@@ -100,7 +100,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name"
 }
