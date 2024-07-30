@@ -7,8 +7,14 @@
  "field_order": [
   "section_break_waxr",
   "amended_from",
+  "customer",
   "from_date",
-  "to_date"
+  "to_date",
+  "number_of_days",
+  "price",
+  "column_break_itux",
+  "status",
+  "address_of_stay"
  ],
  "fields": [
   {
@@ -34,12 +40,42 @@
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "To Date"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Travel Customer"
+  },
+  {
+   "fieldname": "number_of_days",
+   "fieldtype": "Int",
+   "label": "Number of Days"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "column_break_itux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status"
+  },
+  {
+   "fieldname": "address_of_stay",
+   "fieldtype": "Small Text",
+   "label": "Address of Stay"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-29 22:35:41.636117",
+ "modified": "2024-07-30 04:19:39.552785",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",

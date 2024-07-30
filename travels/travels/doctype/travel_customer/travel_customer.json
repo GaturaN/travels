@@ -9,6 +9,7 @@
   "first_name",
   "middle_name_optional",
   "last_name",
+  "full_name",
   "nationality",
   "column_break_fzyy",
   "date_of_birth",
@@ -69,11 +70,17 @@
    "fieldtype": "Date",
    "label": "Date of Birth",
    "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-29 19:15:46.633135",
+ "modified": "2024-07-30 04:26:44.057761",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Travel Customer",
