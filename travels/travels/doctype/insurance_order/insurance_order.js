@@ -9,7 +9,6 @@
 
 frappe.ui.form.on("Insurance Order", "from_date", function (frm) {
   let from_date = new Date(frm.doc.from_date);
-  let to_date = new Date(frm.doc.to_date);
   let today = new Date();
 
   // if from_date is less than today
@@ -20,5 +19,14 @@ frappe.ui.form.on("Insurance Order", "from_date", function (frm) {
 });
 
 // check to_date
-
+frappe.ui.form.on("Insurance Order", "to_date", function (frm) {
+    let to_date = new Date(frm.doc.to_date);
+    let today = new Date();
+  
+    // if from_date is less than today
+    if (to_date < today) {
+      frappe.msgprint("Invalid To Date");
+      frappe.model.set_value(frm.doctype, frm.docname, "to_date", "");
+    }
+  });
   
