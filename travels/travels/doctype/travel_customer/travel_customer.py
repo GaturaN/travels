@@ -9,12 +9,15 @@ from frappe.model.document import Document
 class TravelCustomer(Document):
 
 	def validate(self):
-		first_name = self.first_name.strip().title()
-		last_name = self.last_name.strip().title()
-		self.first_name = first_name
-		self.last_name = last_name
-		self.full_name = f"{first_name} {last_name}"
+		set_full_name(self)
+
+def set_full_name(self):
+	first_name = self.first_name.strip().title()
+	last_name = self.last_name.strip().title()
+	self.first_name = first_name
+	self.last_name = last_name
+	self.full_name = f"{first_name} {last_name}"
   
-		if self.middle_name_optional:
+	if self.middle_name_optional:
 			self.middle_name_optional= self.middle_name_optional.strip().title()
     
