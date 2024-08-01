@@ -66,9 +66,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "New",
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status"
+   "label": "Status",
+   "options": "New\nAccepted\nIn Progress\nExpired\nRejected"
   },
   {
    "fieldname": "address_of_stay",
@@ -79,7 +81,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-30 16:26:46.794032",
+ "modified": "2024-07-30 16:51:31.043187",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
