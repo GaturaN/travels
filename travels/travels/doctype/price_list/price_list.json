@@ -23,7 +23,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-05 16:07:23.749062",
+ "modified": "2024-08-05 16:08:54.512001",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Price List",
@@ -42,5 +42,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
