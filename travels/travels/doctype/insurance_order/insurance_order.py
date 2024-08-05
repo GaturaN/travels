@@ -6,6 +6,7 @@ from frappe.utils import getdate
 from frappe.model.document import Document
 
 
+
 class InsuranceOrder(Document):
 	def validate(self):
 		check_dates(self)
