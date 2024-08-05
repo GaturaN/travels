@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-05 16:02:28.994500",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "price_per_person_per_day_section",
+  "price"
+ ],
+ "fields": [
+  {
+   "fieldname": "price_per_person_per_day_section",
+   "fieldtype": "Section Break",
+   "label": "Price Per Person Per Day"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-08-05 16:07:23.749062",
+ "modified_by": "Administrator",
+ "module": "Travels",
+ "name": "Price List",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
