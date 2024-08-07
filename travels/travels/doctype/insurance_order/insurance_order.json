@@ -58,8 +58,9 @@
   },
   {
    "fieldname": "price",
-   "fieldtype": "Currency",
-   "label": "Price"
+   "fieldtype": "Link",
+   "label": "Price",
+   "options": "Price List"
   },
   {
    "fieldname": "column_break_itux",
@@ -81,7 +82,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-30 16:51:31.043187",
+ "modified": "2024-08-05 16:17:04.453107",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
