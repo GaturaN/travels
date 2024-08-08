@@ -1,47 +1,49 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-08-05 16:02:28.994500",
+ "autoname": "format:PR-{YYYY}-{MM}-{DD}-{##}",
+ "creation": "2024-08-08 14:19:20.296293",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "price_per_person_per_day_section",
   "price"
  ],
  "fields": [
   {
-   "fieldname": "price_per_person_per_day_section",
-   "fieldtype": "Section Break",
-   "label": "Price Per Person Per Day"
-  },
-  {
+   "description": "Per Person Per Day",
    "fieldname": "price",
    "fieldtype": "Currency",
-   "label": "Price"
+   "in_list_view": 1,
+   "label": "Price",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "issingle": 1,
  "links": [],
- "modified": "2024-08-05 16:08:54.512001",
+ "modified": "2024-08-08 14:36:23.110521",
  "modified_by": "Administrator",
  "module": "Travels",
- "name": "Price List",
+ "name": "Pricing",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "price",
  "track_changes": 1
 }

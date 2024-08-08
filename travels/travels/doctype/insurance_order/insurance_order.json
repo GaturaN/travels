@@ -1,25 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:IO-{MM}-{YYYY}-{###}",
- "creation": "2024-07-29 22:32:08.085356",
+ "autoname": "format:IO-{YYYY}-{MM}-{####}",
+ "creation": "2024-08-08 14:23:41.571594",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_waxr",
+  "section_break_3a0d",
   "amended_from",
-  "customer",
+  "insured",
   "from_date",
   "to_date",
-  "number_of_days",
+  "column_break_emsl",
   "price",
-  "column_break_itux",
-  "status",
-  "address_of_stay"
+  "amount"
  ],
  "fields": [
   {
-   "fieldname": "section_break_waxr",
+   "fieldname": "section_break_3a0d",
    "fieldtype": "Section Break"
   },
   {
@@ -33,56 +31,48 @@
    "search_index": 1
   },
   {
+   "fieldname": "insured",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Insured",
+   "options": "Traveller",
+   "reqd": 1
+  },
+  {
+   "description": "Any day from tomorrow",
    "fieldname": "from_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "From Date"
+   "label": "From Date",
+   "reqd": 1
   },
   {
+   "description": "Any day after the \"from_date\"",
    "fieldname": "to_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "To Date"
+   "label": "To Date",
+   "reqd": 1
   },
   {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Travel Customer"
-  },
-  {
-   "fieldname": "number_of_days",
-   "fieldtype": "Int",
-   "label": "Number of Days",
-   "read_only": 1
+   "fieldname": "column_break_emsl",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "price",
    "fieldtype": "Link",
    "label": "Price",
-   "options": "Price List"
+   "options": "Pricing"
   },
   {
-   "fieldname": "column_break_itux",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "New",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "New\nAccepted\nIn Progress\nExpired\nRejected"
-  },
-  {
-   "fieldname": "address_of_stay",
-   "fieldtype": "Small Text",
-   "label": "Address of Stay"
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-05 16:17:04.453107",
+ "modified": "2024-08-08 14:37:41.947876",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
@@ -105,5 +95,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

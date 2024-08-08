@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PriceList(Document):
+class Pricing(Document):
 	pass
