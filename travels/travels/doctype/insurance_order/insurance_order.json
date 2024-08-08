@@ -11,7 +11,9 @@
   "insured",
   "from_date",
   "to_date",
+  "days",
   "column_break_emsl",
+  "status",
   "price",
   "amount"
  ],
@@ -60,19 +62,34 @@
    "fieldname": "price",
    "fieldtype": "Link",
    "label": "Price",
-   "options": "Pricing"
+   "options": "Pricing",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Amount",
    "reqd": 1
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nIn Progress\nComplete\nLost"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-08 14:37:41.947876",
+ "modified": "2024-08-08 16:19:58.308386",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",

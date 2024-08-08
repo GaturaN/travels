@@ -9,11 +9,41 @@ from frappe.model.document import Document
 
 class InsuranceOrder(Document):
 	def validate(self):
-		set_days(self)
+		from_date(self)
+		to_date_check(self)
+		calculate_days(self)
+		calculate_price(self)
 
 
-def set_days(self):
+def from_date(self):
+    start_date = getdate(self.from_date)
+    today = getdate()
+    if start_date < today:
+        frappe.throw("From date cannot be before today")
+        
+
+
+def to_date_check(self):
+    start_date = getdate(self.from_date)
+    end_date = getdate(self.to_date)
+    if end_date < start_date:
+        frappe.throw("To date cannot be before from date")
 	
-	from_date = getdate(self.from_date)
-	to_date = getdate(self.to_date)
-	self.number_of_days = (to_date - from_date).days
+
+
+
+def calculate_days(self):
+	start_date = getdate(self.from_date)
+	end_date = getdate(self.to_date)
+	delta = end_date - start_date
+	days = delta.days + 1
+	self.days = days
+
+
+
+def calculate_price(self):
+    doc = frappe.get_doc("Pricing", "PR-2024-08-08-08")
+    price = doc.price
+    self.amount = price * self.days
+    
+    
