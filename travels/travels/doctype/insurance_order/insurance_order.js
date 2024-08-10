@@ -3,8 +3,13 @@
 
 frappe.ui.form.on("Insurance Order", {
 	refresh(frm) {
-		frm.toggle_display("to_date", false);
+		if (!frm.doc.from_date){
+			frm.toggle_display("to_date", false);
+		} else {
+			frm.toggle_display("to_date", true);
+		}
 	},
+	
 	from_date: function (frm) {
 		let fromDate = new Date(frm.doc.from_date);
 		let today = new Date();
@@ -16,14 +21,12 @@ frappe.ui.form.on("Insurance Order", {
 			frm.set_value("from_date", "");
 			// frm.refresh();
 		}
-
-	},
-	from_date: function (frm){
 		if (frm.doc.from_date){
 			frm.toggle_display("to_date", true);
 		} else {
 			frm.toggle_display("to_date", false);
 		}
+
 	},
 
 	to_date: function (frm) {
@@ -38,7 +41,7 @@ frappe.ui.form.on("Insurance Order", {
 				frm.set_value("to_date", "");
 			}
 		} 
-		
+
 		if (frm.doc.from_date && frm.doc.to_date){
 			diffInMs = new Date(frm.doc.to_date) - new Date(frm.doc.from_date);
 			diffInDays = diffInMs / (1000 * 60 * 60 * 24) + 1;

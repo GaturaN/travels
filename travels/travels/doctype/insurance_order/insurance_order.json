@@ -12,6 +12,7 @@
   "from_date",
   "to_date",
   "days",
+  "hotel_address",
   "column_break_emsl",
   "status",
   "price_id",
@@ -37,7 +38,7 @@
    "fieldname": "insured",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Insured",
+   "label": "Insured Customer Name",
    "options": "Traveller",
    "reqd": 1
   },
@@ -93,12 +94,19 @@
    "label": "Price ID",
    "options": "Pricing",
    "read_only": 1
+  },
+  {
+   "description": "Address of stay during your visit in Kenya",
+   "fieldname": "hotel_address",
+   "fieldtype": "Small Text",
+   "label": "Hotel Address",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-10 11:39:22.414461",
+ "modified": "2024-08-10 13:16:05.460620",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
