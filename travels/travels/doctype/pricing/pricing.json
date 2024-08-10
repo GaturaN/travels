@@ -15,12 +15,13 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Price",
+   "precision": "2",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 21:45:42.617420",
+ "modified": "2024-08-10 11:53:55.732141",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Pricing",

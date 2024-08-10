@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Insurance Order", {
 	// refresh(frm) {
-
+	// 	frm.save();
 	// },
 	from_date: function (frm) {
 		let fromDate = new Date(frm.doc.from_date);
@@ -11,7 +11,7 @@ frappe.ui.form.on("Insurance Order", {
 		if (fromDate < today) {
 			frappe.msgprint({
 				title:"Warning", 
-				message:"From date cannot be before today", 
+				message:"From Date has to be after today", 
 				indicator:"red"});
 			frm.set_value("from_date", "");
 			// frm.refresh();
@@ -24,12 +24,27 @@ frappe.ui.form.on("Insurance Order", {
 			let toDate = new Date(frm.doc.to_date);
 			let fromDate = new Date(frm.doc.from_date);
 			if (toDate < fromDate) {
-				frappe.msgprint("To date cannot be before from date");
+				frappe.msgprint({
+					title:"Warning", 
+					message:"To date has to be after From Date", 
+					indicator:"red"});
 				frm.set_value("to_date", "");
 			}
 		} else {
 			frappe.msgprint("Provide from date");
 			// frm.set_value("to_date", "");
 		}
+		if (frm.doc.from_date && frm.doc.to_date){
+			diffInMs = new Date(frm.doc.to_date) - new Date(frm.doc.from_date);
+			diffInDays = diffInMs / (1000 * 60 * 60 * 24) + 1;
+			frm.set_value("days", diffInDays);
+		}
 	},
+
+	days: function (frm) {
+			// calculate the price
+			let price = frm.doc.order_price;
+			frm.set_value("amount", price * frm.doc.days);
+	},
+	
 });

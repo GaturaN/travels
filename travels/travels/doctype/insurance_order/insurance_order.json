@@ -14,7 +14,8 @@
   "days",
   "column_break_emsl",
   "status",
-  "price",
+  "price_id",
+  "order_price",
   "amount"
  ],
  "fields": [
@@ -59,16 +60,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "price",
-   "fieldtype": "Link",
-   "label": "Price",
-   "options": "Pricing",
-   "reqd": 1
-  },
-  {
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Amount",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -84,12 +79,26 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "New\nIn Progress\nComplete\nLost"
+  },
+  {
+   "fetch_from": "price_id.price",
+   "fieldname": "order_price",
+   "fieldtype": "Data",
+   "label": "Order Price"
+  },
+  {
+   "default": "PR-2024-08-08-08",
+   "fieldname": "price_id",
+   "fieldtype": "Link",
+   "label": "Price ID",
+   "options": "Pricing",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-08 16:19:58.308386",
+ "modified": "2024-08-10 11:39:22.414461",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
