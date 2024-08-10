@@ -58,7 +58,6 @@
   {
    "fieldname": "age",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Age",
    "read_only": 1
   },
@@ -82,7 +81,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 13:35:24.518594",
+ "modified": "2024-08-10 15:02:25.704973",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Traveller",
