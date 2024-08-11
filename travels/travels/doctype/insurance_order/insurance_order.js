@@ -8,6 +8,11 @@ frappe.ui.form.on("Insurance Order", {
 		} else {
 			frm.toggle_display("to_date", true);
 		}
+		if (frm.doc.category === "Individual") {
+			frm.toggle_display("beneficiaries", false);
+		} else {
+			frm.toggle_display("beneficiaries", true);
+		}
 	},
 	
 	from_date: function (frm) {
@@ -53,6 +58,14 @@ frappe.ui.form.on("Insurance Order", {
 			// calculate the price
 			let price = frm.doc.order_price;
 			frm.set_value("amount", price * frm.doc.days);
+	},
+
+	category: function (frm) {
+		if (frm.doc.category === "Individual") {
+			frm.toggle_display("beneficiaries", false);
+		} else {
+			frm.toggle_display("beneficiaries", true);
+		}
 	},
 	
 });
