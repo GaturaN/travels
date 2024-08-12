@@ -55,17 +55,51 @@ frappe.ui.form.on("Insurance Order", {
 	},
 
 	days: function (frm) {
-			// calculate the price
+		if (frm.doc.days){
 			let price = frm.doc.order_price;
-			frm.set_value("amount", price * frm.doc.days);
+			let days = frm.doc.days
+			frm.set_value("amount", price * days);
+
+		}
+			
 	},
 
 	category: function (frm) {
 		if (frm.doc.category === "Individual") {
+			// clear the beneficiary section
+			frm.clear_table("beneficiaries");
 			frm.toggle_display("beneficiaries", false);
 		} else {
 			frm.toggle_display("beneficiaries", true);
 		}
+
+		// if category is != individuals, set the beneficiaries as mandatory
+		if (frm.doc.category !== "Individual") {
+			frm.set_df_property("beneficiaries", "reqd", 1);
+		} else {
+			frm.set_df_property("beneficiaries", "reqd", 0);
+		}
 	},
+
+
 	
+
+});
+
+
+// beneficiaries childtable -> if beneficiary is added or removed in the table.
+// beneficiary should not be the main insured customer in the form
+// Beneficiaries should not be the same
+// calculate amount based on number of beneficiaries
+
+frappe.ui.form.on("Insurance Beneficiaries", {
+	beneficiaries_add: function(frm, cdt, cdn) {
+		frappe.show_alert("Beneficiary added");
+	},
+	full_name(frm){
+		console.log("Full Name changed");
+	}
+	// beneficiaries_add(frm, cdt, cdn){
+	// 	frappe.msgprint("Beneficiary added");
+	// }
 });
