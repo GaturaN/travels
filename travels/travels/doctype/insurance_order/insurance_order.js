@@ -10,6 +10,7 @@ frappe.ui.form.on("Insurance Order", {
     }
     if (frm.doc.category === "Individual") {
       frm.toggle_display("beneficiaries", false);
+      frm.set_value("number_of_beneficiaries", 1);
     } else {
       frm.toggle_display("beneficiaries", true);
     }
@@ -55,19 +56,20 @@ frappe.ui.form.on("Insurance Order", {
     }
   },
 
-  days: function (frm) {
-    if (frm.doc.days) {
-      let price = frm.doc.order_price;
-      let days = frm.doc.days;
-      frm.set_value("amount", price * days);
-    }
-  },
+  // days: function (frm) {
+  //   if (frm.doc.days) {
+  //     let price = frm.doc.order_price;
+  //     let days = frm.doc.days;
+  //     frm.set_value("amount", price * days);
+  //   }
+  // },
 
   category: function (frm) {
     if (frm.doc.category === "Individual") {
       // clear the beneficiary section
       frm.clear_table("beneficiaries");
       frm.toggle_display("beneficiaries", false);
+      frm.set_value("number_of_beneficiaries", 1);
     } else {
       frm.toggle_display("beneficiaries", true);
     }
@@ -90,16 +92,12 @@ frappe.ui.form.on("Insurance Order", {
   }
 });
 
-// This section will be used to calculate the number of beneficiaries in the order.
-// Beneficiaries are added in the childtable while the main owner is placed in the parent table.
+// This section is used to calculate the number of beneficiaries in the order.
+// Beneficiaries are added in the child-table while the main owner is placed in the parent table.
 // We have to make sure beneficiaries selected are unique and none of which is the main owner of the order.
 // This can be done by creating an empty list and adding the beneficiaries in the list while checking if the beneficiary is already in the list.
 
 frappe.ui.form.on("Insurance Beneficiaries", {
-  beneficiaries_add(frm, cdt, cdn) {
-    console.log("Beneficiary Added");
-    frm.set_value("number_of_beneficiaries", "3");
-  },
   full_name(frm, cdt, cdn) {
     console.log("Full Name Changed");
     let data = [];
@@ -112,8 +110,9 @@ frappe.ui.form.on("Insurance Beneficiaries", {
         data.push(beneficiary.beneficiary_name);
       } else {
         // clear the row
+        frappe.show_alert("Beneficiary name already exists in the list");
+        
         frappe.model.set_value(cdt,cdn,"full_name","");
-        frappe.msgprint("Beneficiary name already exists in the list");
       }
     }
     console.log(data);
