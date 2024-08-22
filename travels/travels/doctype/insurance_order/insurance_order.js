@@ -15,7 +15,7 @@ frappe.ui.form.on("Insurance Order", {
     }
   },
 
-  from_date : function (frm) {
+  from_date: function (frm) {
     let fromDate = new Date(frm.doc.from_date);
     let today = new Date();
     if (fromDate < today) {
@@ -79,24 +79,46 @@ frappe.ui.form.on("Insurance Order", {
       frm.set_df_property("beneficiaries", "reqd", 0);
     }
   },
+
+  number_of_beneficiaries(frm){
+    if (frm.doc.number_of_beneficiaries) {
+      let price = frm.doc.order_price;
+      let days = frm.doc.days;
+      let number_of_beneficiaries = frm.doc.number_of_beneficiaries;
+      frm.set_value("amount", price * days * number_of_beneficiaries);
+    }
+  }
 });
 
-// beneficiaries childtable -> if beneficiary is added or removed in the table.
-// beneficiary should not be the main insured customer in the form
-// Beneficiaries should not be the same
-// calculate amount based on number of beneficiaries
+// This section will be used to calculate the number of beneficiaries in the order.
+// Beneficiaries are added in the childtable while the main owner is placed in the parent table.
+// We have to make sure beneficiaries selected are unique and none of which is the main owner of the order.
+// This can be done by creating an empty list and adding the beneficiaries in the list while checking if the beneficiary is already in the list.
 
 frappe.ui.form.on("Insurance Beneficiaries", {
-  beneficiaries_add: function (frm, cdt, cdn) {
-    console.log(frm);
-    console.log(cdt);
-    console.log(cdn);
-    frappe.show_alert("Beneficiary added");
+  beneficiaries_add(frm, cdt, cdn) {
+    console.log("Beneficiary Added");
+    frm.set_value("number_of_beneficiaries", "3");
   },
-  full_name(frm) {
-    console.log("Full Name changed");
+  full_name(frm, cdt, cdn) {
+    console.log("Full Name Changed");
+    let data = [];
+    data.push(frm.doc.customer);
+
+    // iterate the childtable and get all the full names
+    for (let beneficiary of frm.doc.beneficiaries) {
+      // before adding to list, confirm that beneficiary name is not in the list
+      if (!data.includes(beneficiary.beneficiary_name)) {
+        data.push(beneficiary.beneficiary_name);
+      } else {
+        // clear the row
+        frappe.model.set_value(cdt,cdn,"full_name","");
+        frappe.msgprint("Beneficiary name already exists in the list");
+      }
+    }
+    console.log(data);
+    // set the number of beneficiaries
+    r = data.length;
+    frm.set_value("number_of_beneficiaries", r);
   },
-  // beneficiaries_add(frm, cdt, cdn){
-  // 	frappe.msgprint("Beneficiary added");
-  // }
 });

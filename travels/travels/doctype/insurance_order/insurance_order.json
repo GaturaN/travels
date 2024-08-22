@@ -9,6 +9,7 @@
   "section_break_3a0d",
   "amended_from",
   "insured",
+  "customer",
   "from_date",
   "to_date",
   "days",
@@ -144,12 +145,19 @@
    "fieldtype": "Data",
    "label": "Number of Beneficiaries",
    "read_only": 1
+  },
+  {
+   "fetch_from": "insured.full_name",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer",
+   "options": "Traveller"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-12 15:44:11.063170",
+ "modified": "2024-08-22 15:01:46.680407",
  "modified_by": "Administrator",
  "module": "Travels",
  "name": "Insurance Order",
