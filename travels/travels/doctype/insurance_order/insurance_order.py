@@ -14,12 +14,13 @@ class InsuranceOrder(Document):
 		calculate_days(self)
 		calculate_price(self)
        
-
+@frappe.whitelist()
 def from_date(self):
     # start_date = getdate(self.from_date)
     # today = getdate()
     # if start_date < today:
-    #     frappe.throw("From date cannot be before today")
+    #     return frappe.throw("From date cannot be before today")
+    #     # frappe.throw("From date cannot be before today")
     pass
 
 
